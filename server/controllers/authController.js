@@ -24,6 +24,8 @@ exports.signup = async (req, res) => {
 
 // Login Logic
 exports.login = async (req, res) => {
+    console.log("Login Attempt Body:", req.body); // ADD THIS LINE
+
   try {
     const { email, password } = req.body;
 

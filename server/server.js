@@ -20,7 +20,11 @@ app.use('/api/v1/notes', noteRoutes);
 app.get('/', (req, res) => res.send('API is running...'));
 
 // Database Connection
-mongoose.connect(process.env.MONGODB_URI)
+// Replace this:
+// mongoose.connect(process.env.MONGODB_URI)
+
+// With this (temporary):
+mongoose.connect("mongodb://127.0.0.1:27017/primetrade")
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error('DB Connection Error:', err));
 

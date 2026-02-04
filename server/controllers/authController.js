@@ -2,9 +2,6 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-// Signup Logic
-// server/controllers/authController.js
-
 exports.signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -17,9 +14,8 @@ exports.signup = async (req, res) => {
     await user.save();
 
     // Fix: Agar process.env.JWT_SECRET undefined hai toh hardcoded string use karein
-    const secret = process.env.JWT_SECRET || "primetrade_secret_key_123";
-    
-    const token = jwt.sign({ id: user._id }, secret, { expiresIn: '1d' });
+    const secret = "primetrade_secret_key_123"; 
+const token = jwt.sign({ id: user._id }, secret, { expiresIn: '1d' });
     
     res.status(201).json({ token, user: { id: user._id, name, email } });
   } catch (err) {
@@ -40,8 +36,8 @@ exports.login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: 'Invalid Credentials' });
 
-    const secret = process.env.JWT_SECRET || "primetrade_secret_key_123";
-    const token = jwt.sign({ id: user._id }, secret, { expiresIn: '1d' });
+    const secret = "primetrade_secret_key_123"; 
+const token = jwt.sign({ id: user._id }, secret, { expiresIn: '1d' });;
     
     res.json({ token, user: { id: user._id, name: user.name, email } });
   } catch (err) {

@@ -12,18 +12,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/notes', noteRoutes);
+app.use('/api/v1/auth', authRoutes);
 
 // Health Check
 app.get('/', (req, res) => res.send('API is running...'));
 
-// Database Connection
-// Replace this:
-// mongoose.connect(process.env.MONGODB_URI)
-
-// With this (temporary):
 mongoose.connect("mongodb://127.0.0.1:27017/primetrade")
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error('DB Connection Error:', err));

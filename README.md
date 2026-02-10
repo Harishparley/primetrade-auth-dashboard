@@ -18,6 +18,11 @@ A high-performance MERN stack application featuring robust user authentication, 
 * **🔍 Real-time Search**: Instant filtering of notes by title or content.
 * **📱 Responsive UI**: Clean, mobile-friendly design built with TailwindCSS.
 
+## 🌟 New Features Added
+- **Dynamic Dark Mode:** Integrated a theme toggle for better user experience in low-light environments.
+- **Enhanced UI/UX:** Polished Dashboard layout with soft shadows, glassmorphism, and responsive design using Tailwind CSS.
+- **Real-time Search:** Optimized frontend filtering for instant note retrieval.
+
 ---
 
 ## 🛠️ Tech Stack & Dependencies
